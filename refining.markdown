@@ -1,0 +1,176 @@
+---
+layout: page
+title: Refining
+permalink: /refining/
+---
+
+## Refining
+
+### Recipes
+
+> - Agate: Breccia x 20
+- Agate: Rhyolite x 20
+- Aluminum: Bauxite x 15
+- Amethyst: Limestone x 20
+- Amethyst: Basalt x 20
+- Aquamarine: Granite x 20
+- Argentite: Gneiss x 15
+- Argentite: Basalt x 20
+- Azurite: Shale x 15
+- Azurite: Sandstone x 15
+- Azurite: Limestone x 15
+- Azurite: Chalk x 15
+- Basalt Powder: Basalt x 5
+- Bauxite: Laterite Soil x 15
+- Bismuth: Bismuthite x 15
+- Bismuthite: Granite x 15
+- Brass: Copper x 10, Zinc x 5
+- Bronze: Copper x 10, Tin x 5
+- Cadmium: Sphalerite x 15
+- Cadmiumin: Cadmium x 10, Tin x 5
+- Calcium Fertilizer: Chalk Block x 15
+- Carbon: Oil x 10
+- Carbon: Methane x 20
+- Carbon: Graphite x 15
+- Carbon: Coal Ore x 15
+- Carnotite: Sandstone x 15
+- Cassiterite: Rhyolite x 15
+- Cassiterite: Granite x 15
+- Cement: Chalk Block x 15
+- Ceramic: Red Soil x 15
+- Ceramic: Black Soil x 15
+- Ceramic: Chert x 15
+- Ceramic: Silica Ore x 10
+- Ceramic: Feldspar x 15
+- Chalcopyrite: Sandstone x 15
+- Chalcopyrite: Gneiss x 15
+- Chalcopyrite: Gabbro x 15
+- Chalcopyrite: Basalt x 15
+- Chalk Block: Chalky Soil x 15
+- Chalk Block: Chalk x 15
+- Chromium: Peridotite x 15
+- Chromium Steel: Iron x 10, Chromium x 5
+- Cinnabar: Limestone x 15
+- Cinnabar: Dolomite x 15
+- Clay: Chalky Soil x 15
+- Clay: Shale x 10
+- Coal Ore: Coal x 10
+- Cobalt: Cobaltite x 15
+- Cobalt Steel: Iron x 10, Cobalt x 5
+- Cobaltite: Basalt x 15
+- Coke: Washed Coal x 15
+- Cooperite: Gabbro x 15
+- Copper: Chalcopyrite x 15
+- Diamond: Alluvial Soil x 20
+- Electrum: Gold x 5, Silver x 10
+- Emerald: Shale x 20
+- Emerald: Schist x 20
+- Feldspar: Gneiss x 15
+- Feldspar: Rhyolite x 15
+- Feldspar: Granite x 15
+- Feldspar: Basalt x 15
+- Fluorine: Limestone x 20
+- Fluorine: Dolomite x 20
+- Fluorine: Quartzite x 20
+- Galena: Limestone x 15
+- Galena: Dolomite x 15
+- Garnet: Schist x 20
+- Glass: Silica Ore x 10
+- Glass: Felspar x 15
+- Gold: Alluvial Soil x 15
+- Gold: Sulfide Ore x 15
+- Graphite: Schist x 15
+- Gypsum: Shale x 15
+- Gypsum: Sandstone x 15
+- Gypsum: Limestone x 15
+- Gypsum: Chalk x 15
+- Hematite: Chert x 15
+- Ilmenite: Gabbro x 15
+- Iron: Black Soil x 15
+- Iron: Hematite x 15
+- Jade: Schist x 15
+- Jasper: Breccia x 15
+- Lapis Lazuli: Limestone x 20
+- Lead: Galena x 15
+- Lime Ore: Limestone x 15
+- Lithalum: Aluminum x 10, Lithium x 5
+- Lithium: Spodumene x 15
+- Magnesite: Dolomite x 15
+- Magnesite: Saltwater x 30
+- Magnesium: Magnesite x 15
+- Magnetite: Chert x 15
+- Magnetized Iron: Magnetite x 15
+- Magnetized Iron: Iron x 15
+- Malachite: Shale x 15
+- Malachite: Sandstone x 15
+- Malachite: Limestone x 15
+- Malachite: Chalk x 15
+- Manganese: Black Soil x 15
+- Mercury: Cinnabar x 20
+- Methane: Shale x 20
+- Methane: Coal x 20
+- Mica: Schist x 15
+- Mica: Granite x 5
+- Nickel: Pentlandite x 15
+- Nickel Silver: Nickel x 10, Copper x 5, Zinc x 5
+- Obsidian Flake: Rhyolite x 5
+- Ochre: Chert x 15
+- Oil: Sedimentary Rock x 20
+- Oil: Wood x 20
+- Opal: Rhyolite x 20
+- Palladiance: Palladium x 10, Silver x 5
+- Palladium: Cooperite x 15
+- Pentlandite: Laterite Soil x 15
+- Pentlandite: Gabbro x 15
+- Peridotite: Conglomerate x 15
+- Peridotite: Gabbro x 15
+- Pewter: Tin x 5, Lead x 10
+- Pitchblende: Conglomerate x 15
+- Plastic: Oil x 20
+- Platinum: Peridotite x 15
+- Pumice Stone: Rhyolite x 5
+- Quartz Crystal: Quartzite x 10
+- Quartz Crystal: Gneiss x 15
+- Quartz Crystal: Granite x 20
+- Quicklime: Lime Ore x 15
+- Radon: Pitchblende: x 20
+- Radon: Carnotite x 20
+- Realgar: Limestone x 15
+- Ruby: Marble x 20
+- Ruby: Basalt x 20
+- Sapphire: Schist x 20
+- Sapphire: Gneiss x 20
+- Silica Ore: Sand x 15
+- Silica Ore: Chert x 15
+- Silica Ore: Quartzite x 10
+- Silver: Argentite x 15
+- Sphalerite: Shale x 15
+- Sphalerite: Sandstone x 15
+- Sphalerite: Limestone x 15
+- Spodumene: Salt x 15
+- Spodumene: Rhyolite x 15
+- Stainless Steel: Iron x 10, Nickel x 5, Chromium x 5
+- Steel: Coke x 5, Iron x 10, Magnetized Iron x 5
+- Stellite: Cobalt x 5, Chromium x 5, Tungsten x 5
+- Sulfide: Conglomerate x 15
+- Sulfide: Schist x 15
+- Sulfide: Gneiss x 15
+- Talc: Dolomite x 15
+- Tin: Alluvial Soil x 15
+- Tin: Cassiterite x 15
+- Titanium: Ilmenite x 15
+- Triadite: Iron x 10, Nickel x 5, Tungsten x 5
+- Tungsten: Wolframite x 15
+- Tungsten Carbide: Tungsten x 10, Coke x 5
+- Turquoise: Shale x 20
+- Turquoise: Sandstone x 20
+- U-ai: Uranium x 5, Aluminum x 10
+- Uralex: Titanium x 10, Uranium x 5
+- Uranium: Sulfide Ore x 15
+- Uranium: Pitchblende x 15
+- Uranium: Carnotite x 15
+- Washed Coal: Coal Ore x 15
+- Wolframite: Rhyolite x 15
+- Zinc: Sphalerite x 15
+- Zircon: Quartzite x 20
+- Zircon: Granite x 20

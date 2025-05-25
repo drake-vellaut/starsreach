@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Better Homes and Gardens Patch"
 date:   2025-05-24 17:45:11 -0500
 categories: jekyll update
 ---
