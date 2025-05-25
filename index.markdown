@@ -26,5 +26,7 @@ layout: home
     - [Farming](/skills#farming)
 4. [Crafting](/crafting#crafting)
     - [Metal Tiers](/crafting#metal-tiers)
-5. [Homesteads](/homesteads#homesteads)
+5. [Refining](/refining#refining)
+    - [Recipes](/refining#recipes)
+6. [Homesteads](/homesteads#homesteads)
 7. [Emotes](/emotes#emotes)
