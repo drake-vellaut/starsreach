@@ -1,7 +1,7 @@
 ---
 /* futuristic.css */
 
-/* Define CSS variables so colors remain consistent */
+/* CSS Variable Definitions */
 :root {
   --primary-color: #00ffff;
   --accent-color: #ff00ff;
@@ -18,7 +18,7 @@
   box-sizing: border-box;
 }
 
-/* Body Styling */
+/* Global Body Styling */
 body {
   font-family: 'Roboto', sans-serif;
   background: radial-gradient(ellipse at bottom, var(--background-light) 0%, var(--background-dark) 100%);
@@ -26,15 +26,19 @@ body {
   line-height: 1.6;
 }
 
-/* Shared Container for both article and index pages */
+/* Shared Container for Index and Article Pages */
 .article-container,
 .container {
   max-width: 1100px;
   margin: 0 auto;
+  /* SAME dark, futuristic background as the article pages */
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
   padding: 20px;
 }
 
-/* Header Styles */
+/* Header Styling */
 header {
   text-align: center;
   margin-bottom: 20px;
@@ -49,7 +53,7 @@ header p {
   color: var(--subtext-color);
 }
 
-/* Navigation Menu */
+/* Navigation Bar Styling */
 nav {
   display: flex;
   justify-content: center;
@@ -67,20 +71,20 @@ nav a:hover {
   color: var(--accent-color);
 }
 
-/* Styles Specific to the Index Page */
+/* === INDEX PAGE: Post Listing and Sidebar Layout === */
 
-/* Flex container for post listing and sidebar */
+/* Flex container for Index page content */
 .container {
   display: flex;
   gap: 20px;
 }
 
-/* Main content area for posts */
+/* Main content area containing the list of posts */
 .main-content {
   flex: 3;
 }
 
-/* Post Listing (each article preview) */
+/* Each Post Preview (the .article block) */
 .article {
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
@@ -107,7 +111,7 @@ nav a:hover {
   font-weight: bold;
 }
 
-/* Sidebar for Featured Content on the Index Page */
+/* Sidebar Styling */
 .sidebar {
   flex: 1;
   padding: 20px;
@@ -124,7 +128,7 @@ nav a:hover {
   font-size: 1.5em;
 }
 
-/* Responsive Video Container - used in both index and article pages */
+/* Responsive Video Container (for both index and article pages) */
 .video-container {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
@@ -143,9 +147,6 @@ nav a:hover {
   height: 100%;
   border: 0;
 }
-
-/* Additional styling for article pages (if needed) */
-/* For example, individual article pages can use the .article-container class */
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
