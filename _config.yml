@@ -33,7 +33,7 @@ plugins:
   - jekyll-feed
 
 header_pages:
-  - index.markdown
+  - index.html
 
 page_paths:
   - title: "Home"
