@@ -1,3 +1,4 @@
+<!-- File: _layouts/article.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +22,26 @@
       color: #f0f0f0;
       padding: 20px;
       line-height: 1.6;
+    }
+    
+    /* Navigation Menu (shared by index and article pages) */
+    nav {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ff00ff;
     }
     
     /* Container for the Article */
@@ -161,6 +182,12 @@
   </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about/">About Us</a>
+  </nav>
+  
   <div class="article-container">
     <!-- Article Header -->
     <header class="article-header">
@@ -195,22 +222,18 @@
       // Select the UL within the .toc
       var tocContainer = document.querySelector(".toc ul");
       if (!tocContainer) return;
-      
-      // Clear any existing content (if needed)
+
+      // Clear any existing content
       tocContainer.innerHTML = "";
-      
+
       // Find all h2 elements within each section in the article content
       var headers = document.querySelectorAll(".article-content section h2");
       headers.forEach(function(header, index) {
-        // If the header doesn't already have an id, assign one
+        // Generate an ID if one does not exist
         if (!header.id) {
-          header.id = header.textContent
-            .trim()
-            .toLowerCase()
-            .replace(/[^\w]+/g, '-') || 'section-' + index;
+          header.id = header.textContent.trim().toLowerCase().replace(/[^\w]+/g, '-') || 'section-' + index;
         }
-        
-        // Create a new list item and anchor element for the TOC
+        // Create list item and anchor for TOC
         var li = document.createElement("li");
         var anchor = document.createElement("a");
         anchor.href = "#" + header.id;
