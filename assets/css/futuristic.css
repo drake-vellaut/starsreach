@@ -1,6 +1,8 @@
 ---
----
-  :root {
+/* futuristic.css */
+
+/* Define CSS variables so colors remain consistent */
+:root {
   --primary-color: #00ffff;
   --accent-color: #ff00ff;
   --background-light: #1b2735;
@@ -8,21 +10,31 @@
   --text-color: #f0f0f0;
   --subtext-color: #d0d0d0;
 }
-    /* Base Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      color: #f0f0f0;
-      padding: 20px;
-      line-height: 1.6;
-    }
 
-/* Header styling */
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: radial-gradient(ellipse at bottom, var(--background-light) 0%, var(--background-dark) 100%);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Shared Container for both article and index pages */
+.article-container,
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Styles */
 header {
   text-align: center;
   margin-bottom: 20px;
@@ -37,6 +49,14 @@ header p {
   color: var(--subtext-color);
 }
 
+/* Navigation Menu */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
 nav a {
   color: var(--primary-color);
   text-decoration: none;
@@ -46,127 +66,48 @@ nav a {
 nav a:hover {
   color: var(--accent-color);
 }
-/* Main container layout */
+
+/* Styles Specific to the Index Page */
+
+/* Flex container for post listing and sidebar */
 .container {
   display: flex;
   gap: 20px;
 }
 
-/* Main content styling */
+/* Main content area for posts */
 .main-content {
   flex: 3;
 }
-    
-    /* Container for the Article */
-    .article-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      background: rgba(0, 0, 0, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      padding: 20px;
-    }
-    
-    /* Article Header */
-    .article-header {
-      text-align: center;
-      border-bottom: 2px solid rgba(255,255,255,0.2);
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-    .article-header h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.8em;
-      margin-bottom: 10px;
-      color: #00ffff;
-      text-shadow: 0px 0px 8px rgba(0, 255, 255, 0.7);
-    }
-    .subheader {
-      color: #d0d0d0;
-      font-size: 1em;
-    }
-    
-    /* Layout for Table of Contents and Main Content */
-    .content-wrapper {
-      display: flex;
-      gap: 30px;
-    }
-    
-    /* Table of Contents Sidebar */
-    .toc {
-      flex: 1;
-      max-width: 250px;
-      border-right: 1px solid rgba(255,255,255,0.2);
-      padding-right: 20px;
-    }
-    .toc h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.2em;
-      margin-bottom: 15px;
-      color: #00ffff;
-    }
-    .toc ul {
-      list-style: none;
-    }
-    .toc ul li {
-      margin-bottom: 10px;
-    }
-    .toc ul li a {
-      text-decoration: none;
-      color: #00ffff;
-      transition: color 0.3s;
-    }
-    .toc ul li a:hover {
-      color: #ff00ff;
-    }
-    
-    /* Main Article Content */
-    .article-content {
-      flex: 3;
-      padding-left: 20px;
-    }
-    .article-content section {
-      margin-bottom: 40px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .article-content section h2 {
-      font-family: 'Orbitron', sans-serif;
-      margin-bottom: 15px;
-      color: #00ffff;
-    }
-    .article-content section p {
-      margin-bottom: 15px;
-      font-size: 1.1em;
-    }
-    .article-content section img {
-      width: 100%;
-      display: block;
-      margin: 20px 0;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 4px;
-    }
-    
-    /* Responsive Video Container */
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-      height: 0;
-      overflow: hidden;
-      margin: 20px 0;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 4px;
-      box-shadow: 0px 0px 10px rgba(0,255,255,0.7);
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-/* Sidebar styling */
+
+/* Post Listing (each article preview) */
+.article {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+.article h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+.article p {
+  margin-bottom: 10px;
+}
+.article img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.article a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Sidebar for Featured Content on the Index Page */
 .sidebar {
   flex: 1;
   padding: 20px;
@@ -182,35 +123,37 @@ nav a:hover {
   margin-bottom: 15px;
   font-size: 1.5em;
 }
-    
-    /* Article Footer */
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      color: #d0d0d0;
-      font-size: 0.9em;
-      margin-top: 20px;
-    }
-    
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      .content-wrapper {
-        flex-direction: column;
-      }
-      .toc {
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
-        padding-right: 0;
-        padding-bottom: 20px;
-      }
-      .article-content {
-        padding-left: 0;
-      }
-	.container {
+
+/* Responsive Video Container - used in both index and article pages */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.7);
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Additional styling for article pages (if needed) */
+/* For example, individual article pages can use the .article-container class */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
     flex-direction: column;
   }
   nav {
     flex-direction: column;
   }
-    }
+}
+
