@@ -1,99 +1,81 @@
----
-/* futuristic.css */
-
-/* CSS Variable Definitions */
-:root {
-  --primary-color: #00ffff;
-  --accent-color: #ff00ff;
-  --background-light: #1b2735;
-  --background-dark: #090a0f;
-  --text-color: #f0f0f0;
-  --subtext-color: #d0d0d0;
-}
-
-/* Base Reset */
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Global Body Styling */
 body {
   font-family: 'Roboto', sans-serif;
-  background: radial-gradient(ellipse at bottom, var(--background-light) 0%, var(--background-dark) 100%);
-  color: var(--text-color);
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  color: #f0f0f0;
   line-height: 1.6;
-}
-
-/* Shared Container for Index and Article Pages */
-.article-container,
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  /* SAME dark, futuristic background as the article pages */
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
   padding: 20px;
 }
 
-/* Header Styling */
+/* Header */
 header {
   text-align: center;
-  margin-bottom: 20px;
+  padding: 20px 0;
+  margin-bottom: 30px;
 }
 header h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.8em;
-  color: var(--primary-color);
+  color: #00ffff;
   text-shadow: 0px 0px 8px rgba(0, 255, 255, 0.7);
 }
 header p {
-  color: var(--subtext-color);
+  font-size: 1.1em;
+  margin-top: 10px;
+  color: #d0d0d0;
 }
 
-/* Navigation Bar Styling */
+/* Navigation Menu */
 nav {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 nav a {
-  color: var(--primary-color);
+  color: #00ffff;
   text-decoration: none;
   font-size: 1.1em;
   transition: color 0.3s ease;
 }
 nav a:hover {
-  color: var(--accent-color);
+  color: #ff00ff;
 }
 
-/* === INDEX PAGE: Post Listing and Sidebar Layout === */
-
-/* Flex container for Index page content */
+/* Layout Container (for Index Page) */
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
   gap: 20px;
-}
-
-/* Main content area containing the list of posts */
-.main-content {
-  flex: 3;
-}
-
-/* Each Post Preview (the .article block) */
-.article {
-  background: rgba(255, 255, 255, 0.05);
+  /* Use a dark, translucent background to match the article pages */
+  background: rgba(0, 0, 0, 0.8);
   padding: 20px;
-  margin-bottom: 30px;
   border-radius: 8px;
+}
+
+/* Main Content Section */
+.main-content {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 8px;
+}
+.article {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 .article h2 {
   font-family: 'Orbitron', sans-serif;
-  color: var(--primary-color);
+  color: #ff00ff;
   margin-bottom: 10px;
 }
 .article p {
@@ -101,21 +83,21 @@ nav a:hover {
 }
 .article img {
   width: 100%;
+  max-height: 300px;
+  object-fit: cover;
   border-radius: 4px;
   margin-bottom: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .article a {
-  color: var(--primary-color);
+  color: #00ffff;
   text-decoration: underline;
   font-weight: bold;
 }
 
-/* Sidebar Styling */
+/* Sidebar Section */
 .sidebar {
-  flex: 1;
+  background: rgba(255,255,255,0.05);
   padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   max-height: 800px;
   overflow-y: auto;
@@ -123,21 +105,20 @@ nav a:hover {
 .sidebar h3 {
   font-family: 'Orbitron', sans-serif;
   text-transform: uppercase;
-  color: var(--primary-color);
-  margin-bottom: 15px;
   font-size: 1.5em;
+  color: #00ffff;
+  margin-bottom: 15px;
 }
 
-/* Responsive Video Container (for both index and article pages) */
+/* Video Embed */
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 56.25%; /* 16:9 */
   height: 0;
   overflow: hidden;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
-  box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.7);
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(0,255,255,0.7);
 }
 .video-container iframe {
   position: absolute;
@@ -148,13 +129,22 @@ nav a:hover {
   border: 0;
 }
 
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9em;
+  color: #aaa;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
   nav {
     flex-direction: column;
   }
 }
-
