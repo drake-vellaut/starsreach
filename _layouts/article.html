@@ -104,14 +104,15 @@ header p {
     .content-wrapper {
       display: flex;
       gap: 30px;
+	align-items: flex-start;
     }
     
     /* Table of Contents Sidebar */
     .toc {
-      flex: 1;
-      max-width: 250px;
-      border-right: 1px solid rgba(255,255,255,0.2);
-      padding-right: 20px;
+      position: sticky;
+  top: 20px;
+  align-self: start; /* ensure it respects flex container sizing */
+  height: max-content; /* prevent stretching */
     }
     .toc h3 {
       font-family: 'Orbitron', sans-serif;
