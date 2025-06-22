@@ -118,6 +118,10 @@ nav a:hover {
   color: #00ffff;
   margin-bottom: 15px;
 }
+.sidebar img {
+  width: 75%;
+  justify-content: center;
+}
 
 /* Video Embed */
 .video-container {
