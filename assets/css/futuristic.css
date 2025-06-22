@@ -76,6 +76,19 @@ nav a:hover {
   padding: 20px;
   border-radius: 8px;
 }
+
+.section ul {
+ margin-left: 25px;
+}
+
+.article ul {
+ margin-left: 25px;
+}
+
+.article-content ul {
+ margin-left: 25px;
+}
+
 .article {
   margin-bottom: 40px;
   padding-bottom: 20px;
@@ -151,9 +164,6 @@ blockquote {
 	margin-left: 15px;
 }
 
-ul {
- margin-left: 25px;
-}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
