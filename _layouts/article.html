@@ -286,30 +286,47 @@ header p {
 
   <!-- JavaScript to dynamically generate the Table of Contents from headers -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Select the UL within the .toc
-      var tocContainer = document.querySelector(".toc ul");
-      if (!tocContainer) return;
+  document.addEventListener("DOMContentLoaded", function () {
+    const tocContainer = document.querySelector(".toc ul");
+    if (!tocContainer) return;
 
-      // Clear any existing content
-      tocContainer.innerHTML = "";
+    tocContainer.innerHTML = "";
 
-      // Find all h2 elements within each section in the article content
-      var headers = document.querySelectorAll(".article-content section h2");
-      headers.forEach(function(header, index) {
-        // Generate an ID if one does not exist
+    const contentSections = document.querySelectorAll(".article-content section");
+    let currentH2Li = null;
+
+    contentSections.forEach(section => {
+      const headers = section.querySelectorAll("h2, h3");
+
+      headers.forEach((header, index) => {
+        // Generate an ID if missing
         if (!header.id) {
           header.id = header.textContent.trim().toLowerCase().replace(/[^\w]+/g, '-') || 'section-' + index;
         }
-        // Create list item and anchor for TOC
-        var li = document.createElement("li");
-        var anchor = document.createElement("a");
+
+        const li = document.createElement("li");
+        const anchor = document.createElement("a");
         anchor.href = "#" + header.id;
         anchor.textContent = header.textContent;
         li.appendChild(anchor);
-        tocContainer.appendChild(li);
+
+        if (header.tagName.toLowerCase() === "h2") {
+          // Top-level item
+          tocContainer.appendChild(li);
+          currentH2Li = li;
+        } else if (header.tagName.toLowerCase() === "h3" && currentH2Li) {
+          // Sub-item under the last h2
+          let subList = currentH2Li.querySelector("ul");
+          if (!subList) {
+            subList = document.createElement("ul");
+            subList.style.marginLeft = "15px";
+            currentH2Li.appendChild(subList);
+          }
+          subList.appendChild(li);
+        }
       });
     });
-  </script>
+  });
+</script>
 </body>
 </html>
