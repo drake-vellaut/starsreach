@@ -317,7 +317,11 @@ header p {
         const li = document.createElement("li");
         const anchor = document.createElement("a");
         anchor.href = "#" + header.id;
-        anchor.textContent = header.textContent;
+        if (header.tagName.toLowerCase() === "h3") {
+          anchor.textContent = "– " + header.textContent;
+        } else {
+          anchor.textContent = header.textContent;
+        }
         li.appendChild(anchor);
 
         if (header.tagName.toLowerCase() === "h2") {
