@@ -295,7 +295,7 @@ header p {
   </div>
 
   <!-- JavaScript to dynamically generate the Table of Contents from headers -->
-  <script>
+ <script>
   document.addEventListener("DOMContentLoaded", function () {
     const tocContainer = document.querySelector(".toc ul");
     if (!tocContainer) return;
@@ -303,33 +303,40 @@ header p {
     tocContainer.innerHTML = "";
 
     const contentSections = document.querySelectorAll(".article-content section");
+    const usedIds = new Set();
+    const idCounts = {};
     let currentH2Li = null;
 
     contentSections.forEach(section => {
       const headers = section.querySelectorAll("h2, h3");
 
       headers.forEach((header, index) => {
-        // Generate an ID if missing
-        if (!header.id) {
-          header.id = header.textContent.trim().toLowerCase().replace(/[^\w]+/g, '-') || 'section-' + index;
+        let baseId = header.textContent.trim().toLowerCase().replace(/[^\w]+/g, '-') || 'section-' + index;
+
+        // Ensure unique ID
+        if (idCounts[baseId]) {
+          idCounts[baseId]++;
+          baseId += '-' + idCounts[baseId];
+        } else {
+          idCounts[baseId] = 1;
         }
+
+        header.id = baseId;
+
+        // Skip if this ID was already added to the TOC
+        if (usedIds.has(baseId)) return;
+        usedIds.add(baseId);
 
         const li = document.createElement("li");
         const anchor = document.createElement("a");
-        anchor.href = "#" + header.id;
-        if (header.tagName.toLowerCase() === "h3") {
-          anchor.textContent = "– " + header.textContent;
-        } else {
-          anchor.textContent = header.textContent;
-        }
+        anchor.href = "#" + baseId;
+        anchor.textContent = header.tagName.toLowerCase() === "h3" ? "– " + header.textContent : header.textContent;
         li.appendChild(anchor);
 
         if (header.tagName.toLowerCase() === "h2") {
-          // Top-level item
           tocContainer.appendChild(li);
           currentH2Li = li;
         } else if (header.tagName.toLowerCase() === "h3" && currentH2Li) {
-          // Sub-item under the last h2
           let subList = currentH2Li.querySelector("ul");
           if (!subList) {
             subList = document.createElement("ul");
