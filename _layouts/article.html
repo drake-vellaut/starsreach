@@ -242,16 +242,34 @@ header p {
     flex-direction: column;
   }
 
+.article-content {
+  flex: 3;
+  padding-left: 20px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.article-content section {
+  max-width: 100%;
+}
+.article-content img,
+.article-content iframe,
+.article-content video {
+  max-width: 100%;
+  height: auto;
+}
+
+
   .toc {
-    position: relative;
-    top: auto;
-    max-height: none;
-    overflow: visible;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.85);
     padding: 15px;
     margin-bottom: 20px;
-    background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
+    backdrop-filter: blur(4px);
   }
 
   .toc h3 {
