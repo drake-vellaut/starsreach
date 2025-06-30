@@ -222,22 +222,51 @@ header p {
       font-size: 0.9em;
       margin-top: 20px;
     }
+
+.toc-toggle {
+  display: none;
+  background: none;
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1em;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
     
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .content-wrapper {
+    .content-wrapper {
     flex-direction: column;
   }
 
   .toc {
     position: relative;
     top: auto;
-    padding: 10px 15px;
+    max-height: none;
+    overflow: visible;
+    padding: 15px;
     margin-bottom: 20px;
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
+  }
+
+  .toc h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+
+  .toc ul li {
+    margin-bottom: 8px;
+  }
+
+  .toc ul ul {
+    margin-left: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 10px;
   }
 
   .article-content {
@@ -252,6 +281,18 @@ header p {
   .article-header h2,
   header h2 {
     font-size: 1.6em;
+  }
+
+.toc-toggle {
+    display: block;
+  }
+
+  .toc ul {
+    display: none;
+  }
+
+  .toc.open ul {
+    display: block;
   }
     }
   </style>
@@ -277,6 +318,7 @@ header p {
       <!-- Table of Contents Sidebar -->
       <aside class="toc">
         <h3>Contents</h3>
+	<button class="toc-toggle" onclick="toggleTOC()">☰ Table of Contents</button>
         <!-- Empty UL (will be populated by JavaScript) -->
         <ul></ul>
       </aside>
@@ -293,7 +335,11 @@ header p {
       <p>Exploring the mysteries of the cosmos with dedication and passion.</p>
     </footer>
   </div>
-
+  <script>
+	function toggleTOC() {
+    document.querySelector('.toc').classList.toggle('open');
+  }
+  </script>
   <!-- JavaScript to dynamically generate the Table of Contents from headers -->
   <script>
   document.addEventListener("DOMContentLoaded", function () {
