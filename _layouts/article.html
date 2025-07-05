@@ -494,7 +494,10 @@ header p {
       const caption = document.getElementById('modalCaption');
       modal.style.display = 'block';
       modalImg.src = this.src;
-      caption.innerHTML = this.alt;
+      // Find the figcaption within the same figure
+      const fig = this.closest('figure');
+      const figcaption = fig ? fig.querySelector('figcaption') : null;
+      caption.innerHTML = figcaption ? figcaption.innerHTML : '';
     });
   });
 
