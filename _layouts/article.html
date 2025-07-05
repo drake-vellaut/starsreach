@@ -80,6 +80,12 @@ header p {
       border-radius: 8px;
       padding: 20px;
     }
+
+.toc ul li a.active {
+  color: #ff00ff;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.6);
+}
     
     /* Article Header */
     .article-header {
@@ -505,6 +511,97 @@ header p {
     document.getElementById('imageModal').style.display = 'none';
   }
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tocContainer = document.querySelector(".toc ul");
+    if (!tocContainer) return;
+
+    tocContainer.innerHTML = "";
+
+    const contentSections = document.querySelectorAll(".article-content section");
+    const usedIds = new Set();
+    const idCounts = {};
+    let currentH2Li = null;
+
+    contentSections.forEach(section => {
+      const headers = section.querySelectorAll("h2, h3");
+
+      headers.forEach((header, index) => {
+        let baseId = header.textContent.trim().toLowerCase().replace(/[^\w]+/g, '-') || 'section-' + index;
+
+        if (idCounts[baseId]) {
+          idCounts[baseId]++;
+          baseId += '-' + idCounts[baseId];
+        } else {
+          idCounts[baseId] = 1;
+        }
+
+        header.id = baseId;
+        if (usedIds.has(baseId)) return;
+        usedIds.add(baseId);
+
+        const li = document.createElement("li");
+        const anchor = document.createElement("a");
+        anchor.href = "#" + baseId;
+        anchor.textContent = header.tagName.toLowerCase() === "h3" ? "– " + header.textContent : header.textContent;
+
+        anchor.addEventListener("click", function () {
+          const toc = document.querySelector(".toc");
+          if (window.innerWidth <= 768 && toc.classList.contains("open")) {
+            toc.classList.remove("open");
+          }
+        });
+
+        li.appendChild(anchor);
+
+        if (header.tagName.toLowerCase() === "h2") {
+          tocContainer.appendChild(li);
+          currentH2Li = li;
+        } else if (header.tagName.toLowerCase() === "h3" && currentH2Li) {
+          let subList = currentH2Li.querySelector("ul");
+          if (!subList) {
+            subList = document.createElement("ul");
+            subList.style.marginLeft = "15px";
+            currentH2Li.appendChild(subList);
+          }
+          subList.appendChild(li);
+        }
+      });
+    });
+
+    // ScrollSpy behavior
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px 0px -60% 0px", // triggers when header is 40% from top
+      threshold: 0
+    };
+
+    const tocLinks = document.querySelectorAll(".toc a");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(link => {
+            link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+
+            // Scroll the active link into view if it's outside the visible TOC area
+            if (link.classList.contains("active")) {
+              link.scrollIntoView({ block: "nearest", behavior: "smooth" });
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    // Observe all h2 and h3 headers
+    document.querySelectorAll(".article-content section h2, .article-content section h3").forEach(header => {
+      observer.observe(header);
+    });
+  });
+</script>
+
 
 
 <script data-goatcounter="https://gunc.goatcounter.com/count"
