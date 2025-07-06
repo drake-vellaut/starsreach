@@ -642,24 +642,7 @@ header p {
   });
 </script>
 
-<script>
-  let hasScrolled = false;
 
-  window.addEventListener("scroll", function () {
-    const toc = document.querySelector(".toc");
-
-    // Only apply this behavior on mobile
-    if (window.innerWidth <= 768 && toc.classList.contains("open")) {
-      if (!hasScrolled) {
-        hasScrolled = true;
-        setTimeout(() => {
-          toc.classList.remove("open");
-          hasScrolled = false;
-        }, 300); // Delay to allow user to see the scroll effect
-      }
-    }
-  });
-</script>
 
 <script data-goatcounter="https://gunc.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
