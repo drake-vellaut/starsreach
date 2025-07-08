@@ -682,6 +682,18 @@ header p {
 </script>
 
 
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.loading = 'eager'; // Forces load
+        const src = img.getAttribute('src');
+        img.src = ''; // Reset to trigger reload
+        img.src = src;
+      });
+    }, 3000); // Delay in milliseconds
+  });
+</script>
 
 
 <script data-goatcounter="https://gunc.goatcounter.com/count"
