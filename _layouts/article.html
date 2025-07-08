@@ -682,32 +682,6 @@ header p {
 </script>
 
 
-<script>
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const images = document.querySelectorAll('img[loading="lazy"]');
-      let index = 0;
-
-      function loadNextImage() {
-        if (index >= images.length) return;
-
-        const img = images[index];
-        img.loading = 'eager';
-        const src = img.getAttribute('src');
-        img.src = ''; // Reset to trigger reload
-        img.src = src;
-
-        index++;
-        setTimeout(loadNextImage, 5); // ~5ms delay between each image
-      }
-
-      loadNextImage();
-    }, 3000); // Initial delay before starting staggered load
-  });
-</script>
-
-
-
 <script data-goatcounter="https://gunc.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
