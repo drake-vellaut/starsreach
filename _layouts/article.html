@@ -688,6 +688,57 @@ header p {
   });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Only run on mobile devices
+  if (window.innerWidth > 768) return;
+
+  const placeholder =
+    "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+
+  const images = document.querySelectorAll("img");
+
+  images.forEach((img) => {
+    if (!img.dataset.src) {
+      img.dataset.src = img.src;
+      img.src = placeholder;
+    }
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const img = entry.target;
+        const distance = Math.abs(entry.boundingClientRect.top);
+
+        if (entry.isIntersecting) {
+          // Load image if it's in or near the viewport
+          if (img.dataset.src && img.src !== img.dataset.src) {
+            img.src = img.dataset.src;
+          }
+        } else {
+          // Unload image if it's far offscreen (2+ screen heights)
+          if (distance > window.innerHeight * 2) {
+            img.src = placeholder;
+          }
+        }
+      });
+    },
+    {
+      rootMargin: "1000px 0px", // preload when near
+      threshold: 0.01,
+    }
+  );
+
+  images.forEach((img) => {
+    if (img.dataset.src) {
+      observer.observe(img);
+    }
+  });
+});
+</script>
+
+
 
 <script data-goatcounter="https://gunc.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
