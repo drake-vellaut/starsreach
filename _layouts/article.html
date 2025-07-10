@@ -333,12 +333,20 @@ header p {
     
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-    .content-wrapper {
-    flex-direction: column;
+  html, body {
+    touch-action: manipulation; /* Prevent double-tap zoom */
   }
-.haiku-row blockquote {
-      flex: 1 1 100%;
-    }
+
+  .content-wrapper {
+    display: block; /* Avoid flex recalculations */
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .haiku-row blockquote {
+    flex: 1 1 100%;
+  }
+
   .modal-content {
     max-width: 95%;
     max-height: 70vh;
@@ -354,36 +362,46 @@ header p {
     font-size: 0.9rem;
   }
 
-.article-content {
-  flex: 3;
-  padding-left: 20px;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
+  .article-content {
+    width: 100%;
+    padding-left: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow: visible;
+    contain: layout; /* Isolate layout recalculations */
+  }
 
-.article-content section {
-  max-width: 100%;
-}
-.article-content img,
-.article-content iframe,
-.article-content video {
-  max-width: 100%;
-  height: auto;
-}
+  .article-content section {
+    max-width: 100%;
+  }
 
+  .article-content img,
+  .article-content iframe,
+  .article-content video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid rgba(102, 240, 230, 0.2);
+    box-shadow: none; /* Remove GPU-heavy effects */
+  }
 
   .toc {
-    position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.85);
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  backdrop-filter: blur(4px);
-  width: 100%;
-  max-width: 100%;
+    position: sticky; /* Disable sticky */
+    top: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    contain: layout;
   }
 
   .toc h3 {
@@ -391,7 +409,7 @@ header p {
     margin-bottom: 10px;
   }
 
-.toc h4 {
+  .toc h4 {
     font-size: 0.9em;
     margin-bottom: 10px;
   }
@@ -406,14 +424,10 @@ header p {
     padding-left: 10px;
   }
 
-.article-content section h2,
-.article-content section h3,
-.article-content section h4 {
-  scroll-margin-top: 125px; 
-}
-
-  .article-content {
-    padding-left: 0;
+  .article-content section h2,
+  .article-content section h3,
+  .article-content section h4 {
+    scroll-margin-top: 125px;
   }
 
   .article-header h1,
@@ -426,8 +440,9 @@ header p {
     font-size: 1.6em;
   }
 
-.toc-toggle {
+  .toc-toggle {
     display: block;
+    margin-bottom: 10px;
   }
 
   .toc ul {
@@ -437,7 +452,8 @@ header p {
   .toc.open ul {
     display: block;
   }
-    }
+}
+
   </style>
 </head>
 <body>
