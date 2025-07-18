@@ -4,29 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+  <meta name="twitter:title" content="{{ page.title | default: site.title }}"/>
   
   <!-- Custom per-post meta tags -->
   {% if page.description %}
-    <meta name="twitter:description" content="{{ page.description }}">
+    <meta name="twitter:description" content="{{ page.description }}"/>
   {% endif %}
   
   <!-- Open Graph / Twitter Card examples -->
   {% if page.og_image %}
-    <meta property="og:image" content="{{ page.og_image | absolute_url }}">
-    <meta name="twitter:image" content="{{ page.og_image | absolute_url }}">
+    <meta property="og:image" content="{{ page.og_image | absolute_url }}"/>
+    <meta name="twitter:image" content="{{ page.og_image | absolute_url }}"/>
   {% endif %}
   {% if page.twitter_card %}
-    <meta name="twitter:card" content="{{ page.twitter_card }}">
+    <meta name="twitter:card" content="{{ page.twitter_card }}"/>
   {% endif %}
- <meta name="twitter:site" content="@GUNC_StarsReach">
+ <meta name="twitter:site" content="@GUNC_StarsReach"/>
 
 
   
   <!-- Add more as needed, e.g., for title or other properties -->
-  <meta property="og:title" content="{{ page.title | default: site.title }}">
-  <meta property="og:description" content="{{ page.description | default: site.description }}">
-  <meta name="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:title" content="{{ page.title | default: site.title }}"/>
+  <meta property="og:description" content="{{ page.description | default: site.description }}"/>
+  <meta name="og:title" content="{{ page.title | default: site.title }}"/>
   <title>{{ page.title }} | Galactic Geographic</title>
   
   <!-- Google Fonts for the futuristic look -->
